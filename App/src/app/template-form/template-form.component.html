@@ -1,0 +1,92 @@
+<div class="d-flex flex-row">
+
+    <div class="assistent">
+
+        <div class="smartphone d-flex mr-5">
+            <iframe class="content" id="iframe1" src="html/welcome"></iframe>
+            <div class="content" style="display:none" id="smHtml">
+                <div id="dcontent">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidecontent text-center">
+        <div class="top">
+            <button class="list-group-item" style="width: inherit;" (click)="getHtml()">Generate Html</button>
+            <button class="list-group-item" style="width: inherit;" (click)="removeLastControl()">Remove
+                Element</button>
+        </div>
+
+        <div class="sidebar-sticky" id="sticky">
+            <h5 class="text-center mt-2 mb-2">
+                <a data-toggle="collapse" href="#information" aria-expanded="true" class=""><img
+                        src="https://augmentedservicestorage.blob.core.windows.net/kzverticalsamples/assets/images/ic_all_blue.png"
+                        width="25" style="margin-top: -4px;"> Controls</a>
+            </h5>
+
+            <div class="panel-group">
+                <div class="panel panel-default">
+
+                    <div id="information" class="panel-collapse collapse in" aria-expanded="true"
+                        style="cursor: pointer;">
+                        <ul class="list-group" id="vertical">
+                            <li *ngFor="let con of features"><a class="list-group-item list-group-item-action"
+                                    [class.active]="con.id == control" id={{con.id}} style="width: inherit;"
+                                    (click)="openAttributeBar($event)">{{con.name}}</a></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="sidecontent second" style="display:none" id="mySidebar">
+        <button (click)="closeAttributeBar()" class="float-right">X</button>
+        <form [formGroup]="elementForm" (ngSubmit)="onSubmit()">
+
+            <h3>Add Property</h3>
+            <label>
+
+                <div *ngIf="checkBoxControlEnable;then content else other_content"></div>
+                <ng-template #content>Check Box Label</ng-template>
+                <ng-template #other_content>Label</ng-template>
+
+                <input type="text" formControlName="label" required>
+            </label>
+
+            <label *ngIf="!checkBoxControlEnable">
+                <select formControlName="propertyName">
+                    <option value="placeholder">Placeholder</option>
+                </select>
+                <input type="text" formControlName="propertyValue">
+            </label>
+
+            <form [formGroup]="checkBoxOptionForm" *ngIf="checkBoxControlEnable">
+                Check Box Options
+                <div *ngFor="let opt of checkBoxOptionsList; let i = index">
+                    <label>
+                        Option {{i+1}}
+                        <input type="text" formControlName={{opt}} required>
+                    </label>
+
+                </div>
+                <div>
+
+                    <button type="button" (click)="addcheckBoxOption()">Add</button>
+                    <button type="button" [disabled]="optionCount===3 ? true: false"
+                        (click)="removeCheckBoxOption()">Remove</button>
+                </div>
+            </form>
+
+
+
+
+            <button type="submit"
+                [disabled]="!checkBoxControlEnable ? !elementForm.valid : !elementForm.valid && !checkBoxOptionForm.valid">Apply</button>
+        </form>
+    </div>
+
+</div>

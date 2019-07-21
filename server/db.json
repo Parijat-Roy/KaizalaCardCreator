@@ -1,0 +1,26 @@
+{
+  "heros": [
+    {
+     "id": 100,
+      "name": "superstar"
+    },
+    {
+      "id": 101,
+      "name": "superman"
+    },
+    {
+      "id": 102,
+      "name": "Narkos"
+    },
+    {
+      "id": "103",
+      "name": "HarKo"
+    },
+    {
+      "id": 105,
+      "name": "<div _ngcontent-c2=\"\" id=\"dcontent\"><p _ngcontent-c2=\"\">Hello</p><div> json.state</div></div>"
+    }
+  ]
+
+   
+}

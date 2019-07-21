@@ -1,0 +1,106 @@
+/* The device with borders */
+
+.smartphone {
+    position: relative;
+    width: 360px;
+    height: 640px;
+    margin: auto;
+    border: 16px black solid;
+    border-top-width: 60px;
+    border-bottom-width: 60px;
+    border-radius: 36px;
+}
+
+
+/* The horizontal line on the top of the device */
+
+.smartphone:before {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 5px;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #333;
+    border-radius: 10px;
+}
+
+
+/* The circle on the bottom of the device */
+
+.smartphone:after {
+    content: '';
+    display: block;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    left: 50%;
+    bottom: -65px;
+    transform: translate(-50%, -50%);
+    background: #333;
+    border-radius: 50%;
+}
+
+
+/* The screen (or content) of the device */
+
+.smartphone .content {
+    width: 360px;
+    height: 640px;
+    background: white;
+}
+
+* {
+    box-sizing: content-box
+}
+
+.assistent {
+    position: fixed;
+    right: 0;
+    width: 70%;
+    overflow-y: scroll;
+    height: calc(100% - 60px);
+}
+
+.sidecontent {
+    background: #8080806b;
+    width: 20%;
+    position: fixed;
+    height: 100%;
+}
+
+#dcontent {
+    height: 640px;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+#dcontent input {
+    width: calc(100% - 14px);
+    padding: 2px;
+    margin: 5px;
+    border: 0;
+    border-bottom: 1px solid blue;
+    box-shadow: 0px 0px 3px 1px;
+}
+
+.second {
+    left: 20%;
+    background: #80808014;
+}
+
+.addOption {
+box-shadow: 0 0 2px 0 black;
+}
+
+a:not([href]):not([tabindex]) {
+width : inherit;
+}
+
+/* template css */
+
+.top {
+  width: -webkit-fill-available;
+}
